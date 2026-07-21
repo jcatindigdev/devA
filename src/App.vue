@@ -1,6 +1,6 @@
 <script setup>
   import { ref, onMounted } from 'vue'
-  import { supabase } from '../utils/supabase'
+  import { supabase } from './utils/supabase.ts'
   
   const todos = ref([])
 
@@ -20,3 +20,7 @@
     <li v-for="todo in todos" :key="todo.id">{{ todo.name }}</li>
   </ul>
 </template>
+
+<style>
+  
+</style>
