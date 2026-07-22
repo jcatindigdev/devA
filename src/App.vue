@@ -2,13 +2,7 @@
 import NavbarComponent from './components/NavbarComponent.vue';
 import { onMounted, ref } from 'vue'
 
-import { supabase } from './lib/supabaseClient'
-
-export default {
-    components: {
-      NavbarComponent
-    }
-  }
+import { supabase } from './utils/supabase.ts'
 
 const employees = ref([])
 
@@ -26,7 +20,7 @@ onMounted(() => {
 
   <NavbarComponent />
 
-  <ul>
+ <!--  <ul>
     <li v-for="employee in employees" :key="employee.id">{{ employee.first_name }}</li>
-  </ul>
+  </ul> -->
 </template>
