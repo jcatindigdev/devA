@@ -1,14 +1,10 @@
 <script setup>
   
   import { onBeforeMount, ref, watch } from 'vue';
-
-  import { useGlobalStore } from '../stores/global.js';
   
   import { useRoute } from 'vue-router';
 
   const route = useRoute();
-
-  const { user } = useGlobalStore();
 
   const email = ref("");
 

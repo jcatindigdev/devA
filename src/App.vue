@@ -1,26 +1,32 @@
 <script setup>
-  import { ref, onMounted } from 'vue'
-  import { supabase } from './utils/supabase.ts'
-  
-  const todos = ref([])
+import NavbarComponent from './components/NavbarComponent.vue';
+import { onMounted, ref } from 'vue'
 
-  async function getTodos() {
-    const { data } = await supabase.from('todos').select()
-    todos.value = data
+import { supabase } from './lib/supabaseClient'
+
+export default {
+    components: {
+      NavbarComponent
+    }
   }
 
-  onMounted(() => {
-    getTodos()
-  })
+const employees = ref([])
 
+async function getEmployees() {
+  const { data } = await supabase.from('employees').select()
+  instruments.value = data
+}
+
+onMounted(() => {
+  getEmployees()
+})
 </script>
 
 <template>
+
+  <NavbarComponent />
+
   <ul>
-    <li v-for="todo in todos" :key="todo.id">{{ todo.name }}</li>
+    <li v-for="employee in employees" :key="employee.id">{{ employee.first_name }}</li>
   </ul>
 </template>
-
-<style>
-  
-</style>
